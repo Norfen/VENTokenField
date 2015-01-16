@@ -28,9 +28,8 @@
 - (void)textFieldDidEnterBackspace:(VENBackspaceTextField *)textField;
 @end
 
-
 @interface VENBackspaceTextField : UITextField
 
-@property (weak, nonatomic) id<VENBackspaceTextFieldDelegate> delegate;
+@property(weak, nonatomic) id<VENBackspaceTextFieldDelegate> delegate;
 
 @end
