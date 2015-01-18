@@ -21,6 +21,8 @@
 // THE SOFTWARE.
 
 #import <UIKit/UIKit.h>
+#import "VENSuggestionTableViewManager.h"
+#import "VENBackspaceTextField.h"
 
 @class VENTokenField;
 @protocol VENTokenFieldDelegate <NSObject>
@@ -33,6 +35,9 @@
 - (void)tokenField:(VENTokenField *)tokenField didDeleteTokenAtIndex:(NSUInteger)index;
 - (void)tokenField:(VENTokenField *)tokenField didChangeText:(NSString *)text;
 - (void)tokenFieldDidBeginEditing:(VENTokenField *)tokenField;
+
+- (void)tokenTextFieldDidBeginEditing:(VENTokenField *)textField;
+- (void)tokenTextFieldDidEndEditing:(VENTokenField*) textField;
 @end
 
 @protocol VENTokenFieldDataSource <NSObject>
@@ -54,6 +59,7 @@
 @property(weak, nonatomic) id<VENTokenFieldDelegate> delegate;
 @property(weak, nonatomic) id<VENTokenFieldDataSource> dataSource;
 @property(weak, nonatomic) id<VENTokenSuggestionDataSource> suggestionDataSource;
+@property(strong, nonatomic) VENSuggestionTableViewManager *tableViewManager;
 
 - (void)reloadData;
 - (void)collapse;

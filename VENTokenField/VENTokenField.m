@@ -24,8 +24,6 @@
 
 #import <FrameAccessor/FrameAccessor.h>
 #import "VENToken.h"
-#import "VENBackspaceTextField.h"
-#import "VENSuggestionTableViewManager.h"
 
 static const CGFloat VENTokenFieldDefaultVerticalInset = 7.0;
 static const CGFloat VENTokenFieldDefaultHorizontalInset = 15.0;
@@ -44,7 +42,6 @@ static const CGFloat VENTokenFieldDefaultMaxHeight = 150.0;
 @property(strong, nonatomic) VENBackspaceTextField *inputTextField;
 @property(strong, nonatomic) UIColor *colorScheme;
 @property(strong, nonatomic) UILabel *collapsedLabel;
-@property(strong, nonatomic) VENSuggestionTableViewManager *tableViewManager;
 
 @end
 
@@ -512,6 +509,17 @@ static const CGFloat VENTokenFieldDefaultMaxHeight = 150.0;
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
     if (textField == self.inputTextField) {
         [self unhighlightAllTokens];
+        if ([self.delegate respondsToSelector:@selector(tokenTextFieldDidBeginEditing:)]) {
+            [self.delegate tokenTextFieldDidBeginEditing:self];
+        }
+    }
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    if (textField == self.inputTextField) {
+        if ([self.delegate respondsToSelector:@selector(tokenTextFieldDidEndEditing:)]) {
+            [self.delegate tokenTextFieldDidEndEditing:self];
+        }
     }
 }
 
