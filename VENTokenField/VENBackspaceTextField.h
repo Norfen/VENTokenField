@@ -30,6 +30,6 @@
 
 @interface VENBackspaceTextField : UITextField
 
-@property(weak, nonatomic) id<VENBackspaceTextFieldDelegate> delegate;
+@property (weak, nonatomic) id<VENBackspaceTextFieldDelegate> backspaceDelegate;
 
 @end

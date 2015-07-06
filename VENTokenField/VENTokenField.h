@@ -45,6 +45,7 @@
 - (NSString *)tokenField:(VENTokenField *)tokenField titleForTokenAtIndex:(NSUInteger)index;
 - (NSUInteger)numberOfTokensInTokenField:(VENTokenField *)tokenField;
 - (NSString *)tokenFieldCollapsedText:(VENTokenField *)tokenField;
+- (UIColor *)tokenField:(VENTokenField *)tokenField colorSchemeForTokenAtIndex:(NSUInteger)index;
 @end
 
 @protocol VENTokenSuggestionDataSource <NSObject>
@@ -77,6 +78,8 @@
 @property(assign, nonatomic) CGFloat minInputWidth;
 
 @property (assign, nonatomic) UIKeyboardType inputTextFieldKeyboardType;
+@property (assign, nonatomic) UIKeyboardAppearance inputTextFieldKeyboardAppearance;
+
 @property (assign, nonatomic) UITextAutocorrectionType autocorrectionType;
 @property (assign, nonatomic) UITextAutocapitalizationType autocapitalizationType;
 @property (assign, nonatomic) UIView *inputTextFieldAccessoryView;
@@ -86,8 +89,9 @@
 
 @property(strong, nonatomic) UILabel *toLabel;
 
-@property(copy, nonatomic) NSString *placeholderText;
-@property(copy, nonatomic) NSString *inputTextFieldAccessibilityLabel;
+@property (strong, nonatomic) NSArray *delimiters;
+@property (copy, nonatomic) NSString *placeholderText;
+@property (copy, nonatomic) NSString *inputTextFieldAccessibilityLabel;
 
 - (void)setColorScheme:(UIColor *)color;
 

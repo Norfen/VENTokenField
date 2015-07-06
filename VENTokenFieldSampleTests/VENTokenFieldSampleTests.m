@@ -29,17 +29,37 @@
     [tester enterTextIntoCurrentFirstResponder:@"Octocat\n"];
     [tester waitForViewWithAccessibilityLabel:@"Octocat,"];
 
+    [tester enterTextIntoCurrentFirstResponder:@"Steven,"];
+    [tester waitForViewWithAccessibilityLabel:@"Steven,"];
+
+    [tester enterTextIntoCurrentFirstResponder:@"Andy;"];
+    [tester waitForViewWithAccessibilityLabel:@"Andy,"];
+    
+    [tester enterTextIntoCurrentFirstResponder:@"Sam--"];
+    [tester waitForViewWithAccessibilityLabel:@"Sam,"];
+
     // Make sure everything else is still there.
     [tester waitForViewWithAccessibilityLabel:@"Ayaka,"];
     [tester waitForViewWithAccessibilityLabel:@"Mark,"];
+    [tester waitForViewWithAccessibilityLabel:@"Neeraj,"];
+    [tester waitForViewWithAccessibilityLabel:@"Octocat,"];
+    [tester waitForViewWithAccessibilityLabel:@"Steven,"];
+    [tester waitForViewWithAccessibilityLabel:@"Andy,"];
+    [tester waitForViewWithAccessibilityLabel:@"Sam,"];
 
     // Delete
     [tester enterTextIntoCurrentFirstResponder:@"\b"];
     [tester enterTextIntoCurrentFirstResponder:@"\b"];
-    [tester waitForAbsenceOfViewWithAccessibilityLabel:@"Octocat,"];
+    [tester waitForAbsenceOfViewWithAccessibilityLabel:@"Sam,"];
 
     // Clear remaining names to reset state for next test
     [tester tapViewWithAccessibilityLabel:@"To"];
+    [tester enterTextIntoCurrentFirstResponder:@"\b"];
+    [tester enterTextIntoCurrentFirstResponder:@"\b"];
+    [tester enterTextIntoCurrentFirstResponder:@"\b"];
+    [tester enterTextIntoCurrentFirstResponder:@"\b"];
+    [tester enterTextIntoCurrentFirstResponder:@"\b"];
+    [tester enterTextIntoCurrentFirstResponder:@"\b"];
     [tester enterTextIntoCurrentFirstResponder:@"\b"];
     [tester enterTextIntoCurrentFirstResponder:@"\b"];
     [tester enterTextIntoCurrentFirstResponder:@"\b"];
@@ -60,14 +80,14 @@
 {
     [tester tapViewWithAccessibilityLabel:@"To"];
     [tester tapViewWithAccessibilityLabel:@"Resign First Responder"];
-    [tester waitForAbsenceOfKeyboard];
+    [tester waitForAbsenceOfSoftwareKeyboard];
 }
 
 - (void)testResignFirstResponderAndCollapse
 {
     [tester tapViewWithAccessibilityLabel:@"To"];
     [tester tapViewWithAccessibilityLabel:@"Resign First Responder"];
-    [tester waitForAbsenceOfKeyboard];
+    [tester waitForAbsenceOfSoftwareKeyboard];
     [tester tapViewWithAccessibilityLabel:@"Collapse token field"];
 
     // Confirm the collapse lable
@@ -76,6 +96,7 @@
     // Tap on the field and enter names. Lable isn't tappable, so tap the point.
     UIView *tokenField = [tester waitForViewWithAccessibilityLabel:@"0 people"];
     [tester tapScreenAtPoint:tokenField.center];
+    [tester waitForSoftwareKeyboard];
 
     [tester enterTextIntoCurrentFirstResponder:@"Ayaka\n"];
     [tester waitForViewWithAccessibilityLabel:@"Ayaka,"];
@@ -89,21 +110,31 @@
     [tester enterTextIntoCurrentFirstResponder:@"Octocat\n"];
     [tester waitForViewWithAccessibilityLabel:@"Octocat,"];
 
+    [tester enterTextIntoCurrentFirstResponder:@"Steven,"];
+    [tester waitForViewWithAccessibilityLabel:@"Steven,"];
+
+    [tester enterTextIntoCurrentFirstResponder:@"Andy;"];
+    [tester waitForViewWithAccessibilityLabel:@"Andy,"];
+    
+    [tester enterTextIntoCurrentFirstResponder:@"Sam--"];
+    [tester waitForViewWithAccessibilityLabel:@"Sam,"];
+
     [tester tapViewWithAccessibilityLabel:@"Resign First Responder"];
-    [tester waitForAbsenceOfKeyboard];
+    [tester waitForAbsenceOfSoftwareKeyboard];
     [tester tapViewWithAccessibilityLabel:@"Collapse token field"];
 
     // Confirm the collapse label
-    [tester waitForViewWithAccessibilityLabel:@"4 people"];
+    [tester waitForViewWithAccessibilityLabel:@"7 people"];
 
     // Remove one name and check again
     [tester tapScreenAtPoint:tokenField.center];
+    [tester waitForSoftwareKeyboard];
     [tester enterTextIntoCurrentFirstResponder:@"\b"];
     [tester enterTextIntoCurrentFirstResponder:@"\b"];
     [tester tapViewWithAccessibilityLabel:@"Resign First Responder"];
-    [tester waitForAbsenceOfKeyboard];
+    [tester waitForAbsenceOfSoftwareKeyboard];
     [tester tapViewWithAccessibilityLabel:@"Collapse token field"];
-    [tester waitForViewWithAccessibilityLabel:@"3 people"];
+    [tester waitForViewWithAccessibilityLabel:@"6 people"];
 }
 
 @end

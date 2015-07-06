@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0EDC359051B446EA93FED072 /* libPods-VENTokenFieldSample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C4D07417DD394445AE7C0DB7 /* libPods-VENTokenFieldSample.a */; };
+		5040444D1B4B4B6600C0F602 /* VENTokenField in Resources */ = {isa = PBXBuildFile; fileRef = 5040444C1B4B4B6600C0F602 /* VENTokenField */; };
 		86F69D66D5764443910DBA2F /* libPods-VENTokenFieldSampleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A1A551C476247859B5B77C8 /* libPods-VENTokenFieldSampleTests.a */; };
 		B692A4701954D9CA00344E36 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6173DFF1952760200E293BB /* Foundation.framework */; };
 		B692A4721954D9CA00344E36 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B692A4711954D9CA00344E36 /* CoreGraphics.framework */; };
@@ -38,6 +39,7 @@
 /* Begin PBXFileReference section */
 		13471D074FC78D9374DC065D /* Pods-VENTokenFieldSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VENTokenFieldSample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VENTokenFieldSample/Pods-VENTokenFieldSample.debug.xcconfig"; sourceTree = "<group>"; };
 		2A1A551C476247859B5B77C8 /* libPods-VENTokenFieldSampleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VENTokenFieldSampleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5040444C1B4B4B6600C0F602 /* VENTokenField */ = {isa = PBXFileReference; lastKnownFileType = folder; path = VENTokenField; sourceTree = SOURCE_ROOT; };
 		81443E8407414150B80BA653 /* libPods-VENTokenField.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VENTokenField.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		892E8CAA5668EC118102E19F /* Pods-VENTokenFieldSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VENTokenFieldSample.release.xcconfig"; path = "Pods/Target Support Files/Pods-VENTokenFieldSample/Pods-VENTokenFieldSample.release.xcconfig"; sourceTree = "<group>"; };
 		B6173DFF1952760200E293BB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -131,6 +133,7 @@
 		B6173E151952760200E293BB /* VENTokenFieldTests */ = {
 			isa = PBXGroup;
 			children = (
+				5040444C1B4B4B6600C0F602 /* VENTokenField */,
 				B6173E1B1952760200E293BB /* VENTokenFieldTests.m */,
 				B6173E161952760200E293BB /* Supporting Files */,
 			);
@@ -248,7 +251,7 @@
 		B6173DF41952760200E293BB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = Venmo;
 				TargetAttributes = {
 					B692A48B1954D9CA00344E36 = {
@@ -283,6 +286,7 @@
 				B692A4871954D9CA00344E36 /* Images.xcassets in Resources */,
 				B692A4791954D9CA00344E36 /* InfoPlist.strings in Resources */,
 				B692A4821954D9CA00344E36 /* Main.storyboard in Resources */,
+				5040444D1B4B4B6600C0F602 /* VENTokenField in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,6 +445,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
@@ -514,6 +519,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "VENTokenFieldSample/VENTokenFieldSample-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.venmo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -533,6 +539,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "VENTokenFieldSample/VENTokenFieldSample-Prefix.pch";
 				INFOPLIST_FILE = "VENTokenFieldSample/VENTokenFieldSample-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.venmo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -555,6 +562,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "VENTokenFieldSampleTests/VENTokenFieldSampleTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.venmo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -574,6 +582,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "VENTokenFieldSample/VENTokenFieldSample-Prefix.pch";
 				INFOPLIST_FILE = "VENTokenFieldSampleTests/VENTokenFieldSampleTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.venmo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
